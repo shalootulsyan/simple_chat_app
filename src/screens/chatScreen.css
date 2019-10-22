@@ -1,0 +1,16 @@
+#chatBox {
+    overflow-y: scroll;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 70vh;
+    /* justify-content: flex-end; DO NOT USE: breaks scrolling */
+}
+#chatBox .fix {
+    margin-top: auto !important;
+    /* use !important to prevent breakage from child margin settings */
+}
+
+input[type=text]:focus {
+    outline: none!important;
+    border-color:#007bff
+  }
