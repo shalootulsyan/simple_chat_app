@@ -50,8 +50,15 @@ class Login extends React.Component {
             .catch((err) => alert(err.message))
     }
 
+    logInSetContact = async () => {
+        await Storage.setContact()
+    }
+
     render() {
         if (this.state.redirectFlag === true) {
+            if (!Storage.getContact()) {
+                this.logInSetContact()
+            }
             return (<Redirect to='/contacts' />)
         }
         return (

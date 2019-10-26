@@ -31,6 +31,7 @@ class SignUp extends React.Component {
         this.auth.onAuthStateChanged(firebase => {
             if (firebase) {
                 console.log(firebase.email);
+                console.log(firebase);
 
             }
             else {
@@ -49,7 +50,9 @@ class SignUp extends React.Component {
                 await Storage.setUserName(this.state.userName)
                 await Storage.setContact()
                 await Storage.setInitialMessage()
-            }).then(() => this.setState({ redirectFlag: true }))
+            }).then(() => this.auth.currentUser.updateProfile({
+                displayName: this.state.userName
+            })).then(() => this.setState({ redirectFlag: true }))
             .catch((err) => alert(err.message))
     }
 

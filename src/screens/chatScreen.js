@@ -120,7 +120,7 @@ class ChatScreen extends React.Component {
 
                 </Container>
 
-                <Container className='d-flex justify-content-between align-items-end my-2' style={{}}>
+                <Container className='d-flex justify-content-between align-items-end my-2 ' style={{}}>
                     <input style={{ paddingLeft: 5, width: '100%', height: '50px', borderTopLeftRadius: 8, borderBottomLeftRadius: 8 }} className='' value={this.state.inputText} type='text' onChange={async (event) => { await this.setState({ inputText: event.target.value }); }} placeholder={'Type a message'} value={this.state.inputText} />
                     <Button variant="primary" style={{ borderRadius: 0, height: '50px', borderTopRightRadius: 8, borderBottomRightRadius: 8 }} className='m-3' onClick={() => this.textInputHandle()} className=''>{'Send'}</Button>
                 </Container>
