@@ -40,7 +40,7 @@ class Login extends React.Component {
 
     }
 
-    logInUser = () => {
+    logInUser = async () => {
 
         this.auth.signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(async () => {
