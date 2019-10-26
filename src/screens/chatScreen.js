@@ -42,7 +42,7 @@ class ChatScreen extends React.Component {
         //console.log(value);
 
         await this.setState({
-            messageData: await Storage.getMessage()
+            messageData: await Storage.getMessage() || 'Hi'
         })
         //console.log(this.state.messageData[this.state.userName].message);
 
