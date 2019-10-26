@@ -27,11 +27,10 @@ class Login extends React.Component {
 
         this.auth = firebase.auth();
 
-        this.auth.onAuthStateChanged(async firebase => {
+        this.auth.onAuthStateChanged(firebase => {
             if (firebase) {
                 console.log(firebase.email);
 
-                await this.setState({ userName: firebase.displayName })
             }
             else {
 
@@ -40,7 +39,7 @@ class Login extends React.Component {
 
     }
 
-    logInUser = async () => {
+    logInUser = () => {
 
         this.auth.signInWithEmailAndPassword(this.state.email, this.state.password)
             .then(async () => {
@@ -49,8 +48,7 @@ class Login extends React.Component {
                 const userName = Storage.getUserName()
                 console.log(userName)
             }).then(() => this.setState({ redirectFlag: true }))
-            .catch((err) => alert(err.message));
-        await Storage.setInitialMessage()
+            .catch((err) => alert(err.message))
     }
 
     logInSetContact = async () => {
