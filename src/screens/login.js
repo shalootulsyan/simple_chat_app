@@ -49,7 +49,8 @@ class Login extends React.Component {
                 const userName = Storage.getUserName()
                 console.log(userName)
             }).then(() => this.setState({ redirectFlag: true }))
-            .catch((err) => alert(err.message))
+            .catch((err) => alert(err.message));
+        await Storage.setInitialMessage()
     }
 
     logInSetContact = async () => {
